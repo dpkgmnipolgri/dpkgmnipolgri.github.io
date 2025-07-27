@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahasiswa sebagai Agent of Change - DPK GMNI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="image/Logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body data-theme="default">
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="image/Logo.svg" alt="Logo GMNI"><span>GMNI Politeknik PGRI
+                    Banten</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#sejarah">Sejarah</a></li>
+                <li><a href="index.html#kepengurusan">Kepengurusan</a></li>
+                <li><a href="index.html#galeri">Galeri</a></li>
+                <li><a href="daftar-artikel.html">Artikel</a></li>
+                <li><a href="index.html#pemberitahuan">Pemberitahuan</a></li>
+                <li><a href="index.html#dokumen">Dokumen</a></li>
+                <li><a href="index.html#pendaftaran">Pendaftaran</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="content-section">
+            <div class="artikel-container">
+                <h1>Mahasiswa sebagai Agent of Change: Dari Ruang Diskusi Turun ke Aksi</h1>
+                <p class="artikel-info">Oleh: Bung Hannan | 28 Juli 2025</p>
+                <img src="image/Articel/change.jpg" alt="Gambar Mahasiswa Aksi" class="artikel-gambar-utama">
+                <div class="artikel-isi">
+                    <p>Gelar "Agent of Change" atau agen perubahan seringkali disematkan pada mahasiswa. Namun, gelar
+                        ini bukanlah sebuah status yang datang dengan sendirinya, melainkan sebuah peran yang harus
+                        diperjuangkan secara sadar. Menjadi agen perubahan berarti memiliki kemampuan untuk menganalisis
+                        kondisi sosial dan keberanian untuk bertindak nyata demi perbaikan.</p>
+                    <p>Perjalanan seorang agen perubahan selalu dimulai dari landasan intelektual yang kuat. Ruang-ruang
+                        diskusi, kajian buku, dan seminar adalah kawah candradimuka bagi seorang kader. Di sinilah
+                        kepekaan sosial diasah, analisis dipertajam, dan gagasan-gagasan progresif dilahirkan. Tanpa
+                        pemahaman teoritis yang mendalam, sebuah gerakan hanya akan menjadi reaktif dan tanpa arah.
+                        Inilah esensi dari "pemikir" dalam identitas "pejuang-pemikir" GMNI.</p>
+                    <p>Namun, intelektualitas yang terkunci di menara gading tidak akan mengubah apa pun. Ilmu harus
+                        diamalkan, dan gagasan harus diperjuangkan. Setelah gagasan matang di ruang diskusi, langkah
+                        selanjutnya adalah "turun ke aksi". Aksi tidak selalu berarti demonstrasi besar-besaran.
+                        Advokasi kebijakan, pengabdian masyarakat, pendampingan hukum bagi yang tertindas, serta
+                        kampanye digital adalah bentuk-bentuk aksi nyata yang bisa dilakukan. Di sinilah sisi "pejuang"
+                        mengambil peran, menerjemahkan analisis menjadi tindakan konkret yang bermanfaat bagi rakyat.
+                    </p>
+                    <p>Menjadi agen perubahan adalah sebuah maraton, bukan sprint. Konsistensi dan daya tahan adalah
+                        kunci. Kader GMNI harus siap menghadapi tantangan, baik dari dalam maupun dari luar, dan terus
+                        menjaga api perjuangan tetap menyala. Sebab, perubahan sejati tidak lahir dari satu aksi heroik,
+                        melainkan dari ribuan langkah kecil yang konsisten dan tak pernah berhenti.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Terhubunglah dengan kami</p>
+        <div class="social-media">
+            <a href="https://www.instagram.com/dpkgmni.polgri/" target="_blank" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6283823175730" target="_blank" aria-label="WhatsApp"><i
+                    class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 DPK GMNI Politeknik PGRI Banten. All rights reserved.</p>
+    </footer>
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                burger.classList.toggle('toggle');
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -20,6 +20,9 @@
 
     <div id="preloader">
         <img src="image/Logo.svg" alt="Loading..." class="preloader-logo">
+        <div class="preloader-text">
+            Dewan Pimpinan Komisariat <br> Politeknik Pgri Banten
+        </div>
     </div>
 
     <div class="fixed-controls">
@@ -34,34 +37,23 @@
 
     <div class="banner-slider swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="image/BannerKongrer.jpg" alt="Kongres Gmni XXII" loading="lazy">
-            </div>
-            <div class="swiper-slide">
-                <img src="image/Kader.jpg" alt="Rekrutmen Kader" loading="lazy">
-            </div>
-            <div class="swiper-slide">
-                <img src="image/Kutipan1.jpg" alt="Kutipan Bung Karno" loading="lazy">
-            </div>
-            <div class="swiper-slide">
-                <img src="image/Kutipan2.jpg" alt="Kutipan Bung Karno" loading="lazy">
-            </div>
-            <div class="swiper-slide">
-                <img src="image/Kutipan3.jpg" alt="Kutipan Bung Karno" loading="lazy">
-            </div>
-            <div class="swiper-slide">
-                <img src="image/Kutipan4.jpg" alt="Kutipan Bung Karno" loading="lazy">
-            </div>
+            <div class="swiper-slide"><img src="image/BannerKongrer.jpg" alt="Kongres Gmni XXII" loading="lazy"></div>
+            <div class="swiper-slide"><img src="image/Kader.jpg" alt="Rekrutmen Kader" loading="lazy"></div>
+            <div class="swiper-slide"><img src="image/Kutipan1.jpg" alt="Kutipan Bung Karno" loading="lazy"></div>
+            <div class="swiper-slide"><img src="image/Kutipan2.jpg" alt="Kutipan Bung Karno" loading="lazy"></div>
+            <div class="swiper-slide"><img src="image/Kutipan3.jpg" alt="Kutipan Bung Karno" loading="lazy"></div>
+            <div class="swiper-slide"><img src="image/Kutipan4.jpg" alt="Kutipan Bung Karno" loading="lazy"></div>
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
+        <button id="banner-autoplay-toggle" class="swiper-autoplay-toggle" aria-label="Pause Slider"><i
+                class="fas fa-pause"></i></button>
     </div>
 
     <header>
         <nav>
-            <a href="#" class="logo">
-                <img src="image/Logo.svg" alt="Logo GMNI">
+            <a href="index.html" class="logo"> <img src="image/Logo.svg" alt="Logo GMNI">
                 <span>GMNI Politeknik PGRI Banten</span>
             </a>
             <ul class="nav-links">
@@ -69,6 +61,7 @@
                 <li><a href="#sejarah">Sejarah</a></li>
                 <li><a href="#kepengurusan">Kepengurusan</a></li>
                 <li><a href="#galeri">Galeri</a></li>
+                <li><a href="daftar-artikel.html">Artikel</a></li>
                 <li><a href="#pemberitahuan">Pemberitahuan</a></li>
                 <li><a href="#dokumen">Dokumen</a></li>
                 <li><a href="#pendaftaran">Pendaftaran</a></li>
@@ -118,11 +111,10 @@
                         <h3>Tujuan & Sifat</h3>
                         <p><strong>Sesuai dengan Anggaran Dasar Gerakan Mahasiswa Nasional Indonesia BAB III Tujuan Dan
                                 Sifat Pasal 4.</strong></p><br>
-                        <strong>Tujuan:</strong> Organisasi perjuangan
-                        yang bertujuan untuk mendidik kader bangsa dalam mewujudkan Sosioalisme Indonesia
-                        berdasarkan Pancasila dan UUD 1945.
-                        <br><strong>Sifat:</strong> Organisasi yang bersifat independen, bebas aktif, serta berwatak
-                        kerakyatan..</p>
+                        <p><strong>Tujuan:</strong> Organisasi perjuangan yang bertujuan untuk mendidik kader bangsa
+                            dalam mewujudkan Sosioalisme Indonesia berdasarkan Pancasila dan UUD 1945.</p><br>
+                        <p><strong>Sifat:</strong> Organisasi yang bersifat independen, bebas aktif, serta berwatak
+                            kerakyatan..</p>
                     </div>
                 </div>
             </div>
@@ -131,48 +123,44 @@
         <section id="kepengurusan" class="content-section">
             <h2 data-aos="fade-up">Struktur Kepengurusan</h2>
             <div class="swiper kepengurusan-slider" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper" id="pengurus-list">
-                </div>
+                <div class="swiper-wrapper" id="pengurus-list"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-pagination"></div>
-                <button class="swiper-autoplay-toggle" aria-label="Pause Slider">
-                    <i class="fas fa-pause"></i>
-                </button>
+                <button class="swiper-autoplay-toggle" aria-label="Pause Slider"><i class="fas fa-pause"></i></button>
             </div>
         </section>
 
         <section id="galeri" class="content-section">
             <h2 data-aos="fade-up">Galeri Kegiatan</h2>
-            <div class="galeri-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="diskusi">Diskusi</button>
+                <button class="filter-btn" data-filter="aksi">Aksi</button>
+                <button class="filter-btn" data-filter="kaderisasi">Kaderisasi</button>
             </div>
+            <div class="galeri-grid" data-aos="fade-up" data-aos-delay="200"></div>
         </section>
 
         <section id="pemberitahuan" class="content-section">
             <h2 data-aos="fade-up">Papan Pemberitahuan</h2>
             <div class="swiper pemberitahuan-slider" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper" id="pemberitahuan-list">
-                </div>
+                <div class="swiper-wrapper" id="pemberitahuan-list"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-pagination"></div>
-                <button class="swiper-autoplay-toggle" aria-label="Pause Slider">
-                    <i class="fas fa-pause"></i>
-                </button>
+                <button class="swiper-autoplay-toggle" aria-label="Pause Slider"><i class="fas fa-pause"></i></button>
             </div>
         </section>
 
         <section id="dokumen" class="content-section">
             <h2 data-aos="fade-up">Pusat Dokumen</h2>
             <div class="dokumen-content" data-aos="fade-up" data-aos-delay="200">
-                <p>Akses semua dokumen penting organisasi seperti AD/ART, Ebook, dan arsip lainnya melalui tautan
-                    Google Drive kami dengan catatan harus memiliki akses pada link tersebut, untuk bisa mengakses
-                    dokumen ini
+                <p>Akses semua dokumen penting organisasi seperti AD/ART, Ebook, dan arsip lainnya melalui tautan Google
+                    Drive kami dengan catatan harus memiliki akses pada link tersebut, untuk bisa mengakses dokumen ini
                     bisa hubungi kami.</p>
                 <a href="https://drive.google.com/drive/folders/1X1a4DanXT5CxJDuVG4KxWr7iIIF38vBk?usp=drive_link"
-                    target="_blank" class="cta-button">
-                    <i class="fab fa-google-drive"></i> Buka Google Drive
-                </a>
+                    target="_blank" class="cta-button"><i class="fab fa-google-drive"></i> Buka Google Drive</a>
             </div>
         </section>
 
@@ -181,14 +169,14 @@
             <div class="pendaftaran-container" data-aos="fade-up" data-aos-delay="200">
                 <div class="pendaftaran-item">
                     <h3><i class="fab fa-whatsapp"></i> Hubungi Kami</h3>
-                    <p>Klik tombol di bawah untuk terhubung dengan narahubung kami dan memulai proses pendaftaran.</p>
-                    <a href="https://wa.me/6283823175730?text=Saya%20tertarik%20gabung%20di%20keluarga%20besar%20Dpk%20Dmni%20Polgri%20Bung"
+                    <p>Klik tombol di bawah untuk terhubung dengan narahubung kami dan memulai proses pendaftaran.</p><a
+                        href="https://wa.me/6283823175730?text=Saya%20tertarik%20gabung%20di%20keluarga%20besar%20Dpk%20Dmni%20Polgri%20Bung"
                         target="_blank" class="cta-button whatsapp">Daftar via WhatsApp</a>
                 </div>
                 <div class="pendaftaran-item">
                     <h3><i class="fas fa-qrcode"></i> Pindai Barcode</h3>
-                    <p>Gunakan kamera ponsel Anda untuk memindai QR code di bawah ini.</p>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/6283823175730?text=Saya%20tertarik%20gabung%20di%20keluarga%20besar%20Dpk%20Dmni%20Polgri%20Bung"
+                    <p>Gunakan kamera ponsel Anda untuk memindai QR code di bawah ini.</p><img
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/6283823175730?text=Saya%20tertarik%20gabung%20di%20keluarga%20besar%20Dpk%20Dmni%20Polgri%20Bung"
                         alt="QR Code WhatsApp" class="qr-code" loading="lazy">
                 </div>
             </div>

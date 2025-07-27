@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membumikan Marhaenisme di Era Digital - DPK GMNI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="image/Logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body data-theme="default">
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="image/Logo.svg" alt="Logo GMNI"><span>GMNI Politeknik PGRI
+                    Banten</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#sejarah">Sejarah</a></li>
+                <li><a href="index.html#kepengurusan">Kepengurusan</a></li>
+                <li><a href="index.html#galeri">Galeri</a></li>
+                <li><a href="daftar-artikel.html">Artikel</a></li>
+                <li><a href="index.html#pemberitahuan">Pemberitahuan</a></li>
+                <li><a href="index.html#dokumen">Dokumen</a></li>
+                <li><a href="index.html#pendaftaran">Pendaftaran</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="content-section">
+            <div class="artikel-container">
+                <h1>Membumikan Marhaenisme di Era Digital</h1>
+                <p class="artikel-info">Oleh: Bung Hannan | 28 Juli 2025</p>
+                <img src="image/Articel/marhaen.jpg" alt="Gambar Marhaenisme" class="artikel-gambar-utama">
+                <div class="artikel-isi">
+                    <p>Marhaenisme, sebuah ideologi yang digagas oleh Bung Karno, seringkali menjadi subjek diskusi yang
+                        tak pernah usang. Berakar dari kondisi rakyat Indonesia yang tertindas meski memiliki alat
+                        produksi sendiri, Marhaenisme menjadi antitesis terhadap kapitalisme dan imperialisme. Namun,
+                        pertanyaan mendasar muncul: masih relevankah Marhaenisme di tengah gempuran era digital saat
+                        ini?</p>
+                    <p>Di era digital, bentuk-bentuk eksploitasi telah bertransformasi. Petani dan buruh klasik mungkin
+                        telah berkurang, namun muncul "Marhaen-marhaen baru": pengemudi ojek online yang memiliki motor
+                        sendiri namun terjerat oleh sistem aplikasi, pemilik warung kecil yang harus bersaing dengan
+                        raksasa e-commerce, hingga pekerja lepas (freelancer) yang tidak memiliki jaminan sosial. Mereka
+                        semua memiliki alat produksi—motor, laptop, keahlian—namun nasibnya tetap ditentukan oleh
+                        kekuatan kapital yang lebih besar. Di sinilah relevansi Marhaenisme terlihat jelas; ia
+                        memberikan kacamata untuk membaca bentuk penindasan gaya baru.</p>
+                    <blockquote>"Janganlah kita menjadi bangsa penjiplak! Bangunlah Marhaenisme yang sesuai dengan
+                        urat-nadi bangsa kita sendiri."</blockquote>
+                    <p>Tantangannya pun tidak mudah. Individualisme yang didorong oleh media sosial dan fragmentasi
+                        kelas pekerja digital membuat pengorganisasian massa menjadi lebih sulit. Oleh karena itu, peran
+                        kader GMNI sebagai pejuang-pemikir menjadi krusial. Tugas kita adalah menerjemahkan kembali
+                        nilai-nilai Marhaenisme ke dalam bahasa yang dipahami generasi sekarang, mengadvokasi kebijakan
+                        yang melindungi para pekerja digital, dan membangun solidaritas di antara kaum Marhaen modern.
+                    </p>
+                    <p>Pada akhirnya, membumikan Marhaenisme di era digital bukanlah tentang nostalgia, melainkan
+                        tentang adaptasi dan perjuangan berkelanjutan. Api Marhaenisme harus terus menyala, menerangi
+                        jalan perjuangan menuju masyarakat adil dan makmur yang dicita-citakan.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Terhubunglah dengan kami</p>
+        <div class="social-media">
+            <a href="https://www.instagram.com/dpkgmni.polgri/" target="_blank" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6283823175730" target="_blank" aria-label="WhatsApp"><i
+                    class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 DPK GMNI Politeknik PGRI Banten. All rights reserved.</p>
+    </footer>
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                burger.classList.toggle('toggle');
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngulik 'Atomic Habits' - DPK GMNI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="image/Logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body data-theme="default">
+    <header>
+        <nav><a href="index.html" class="logo"><img src="image/Logo.svg" alt="Logo GMNI"><span>GMNI Politeknik PGRI
+                    Banten</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#sejarah">Sejarah</a></li>
+                <li><a href="index.html#kepengurusan">Kepengurusan</a></li>
+                <li><a href="index.html#galeri">Galeri</a></li>
+                <li><a href="daftar-artikel.html">Artikel</a></li>
+                <li><a href="index.html#pemberitahuan">Pemberitahuan</a></li>
+                <li><a href="index.html#dokumen">Dokumen</a></li>
+                <li><a href="index.html#pendaftaran">Pendaftaran</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="content-section">
+            <div class="artikel-container">
+                <h1>Ngebangun Diri 1% Tiap Hari: Ngulik 'Atomic Habits' ala Mahasiswa Aktivis</h1>
+                <p class="artikel-info">Oleh: Bung Hannan | 28 Juli 2025</p>
+                <img src="image/Articel/habits.jpg" alt="Buku Atomic Habits" class="artikel-gambar-utama">
+                <div class="artikel-isi">
+                    <p>Awal semester, resolusi setinggi langit: mau ikut A, ngerjain B, baca buku C, sambil tetap jadi
+                        aktivis kritis. Kenyataannya? Dua minggu kemudian, kita semua balik ke mode 'mager' sambil
+                        nonton series. Relate? Gue juga. Ternyata, masalahnya bukan di niat kita yang kurang, tapi di
+                        cara kita nge-set goals yang salah total.</p>
+                    <p>Di sinilah buku "Atomic Habits" karya James Clear datang kayak pahlawan. Intinya simpel banget:
+                        lupakan tujuan besar yang bikin stres, fokus aja sama perbaikan 1% setiap hari. Goals itu hasil
+                        akhir, yang penting itu sistemnya. Goals-mu mungkin dapet IPK 4, tapi sistem-nya adalah "baca 10
+                        halaman materi sebelum buka TikTok". Goals-mu mungkin "mengawal kebijakan pemerintah", tapi
+                        sistem-nya adalah "baca satu berita politik tiap pagi pas ngopi". Kecil, tapi konsisten.</p>
+                    <blockquote>"You do not rise to the level of your goals. You fall to the level of your systems." -
+                        James Clear</blockquote>
+                    <p>Prinsipnya ada empat: bikin kebiasaan itu (1) terlihat jelas, (2) menarik, (3) mudah dilakukan,
+                        dan (4) memuaskan. Mau rajin baca buku GMNI? Jangan simpen di rak paling bawah, tapi taruh di
+                        atas bantal. Mau rajin nulis analisis? Siapin aplikasi notes di homescreen HP paling depan.
+                        Bikin semudah mungkin sampai alasan buat nggak ngelakuin itu jadi aneh.</p>
+                    <p>Jadi kader progresif itu bukan hasil kerja semalam. Itu adalah akumulasi dari ratusan kebiasaan
+                        kecil: diskusi kecil, bacaan singkat, aksi-aksi kecil yang konsisten. Dengan nerapin 'atomic
+                        habits', kita nggak cuma jadi mahasiswa atau aktivis yang lebih baik, tapi juga manusia yang
+                        terus bertumbuh, 1% setiap harinya.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Terhubunglah dengan kami</p>
+        <div class="social-media"><a href="https://www.instagram.com/dpkgmni.polgri/" target="_blank"
+                aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/6283823175730"
+                target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+        <p>&copy; 2025 DPK GMNI Politeknik PGRI Banten. All rights reserved.</p>
+    </footer>
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                burger.classList.toggle('toggle');
+            });
+        }
+    </script>
+</body>
+
+</html>

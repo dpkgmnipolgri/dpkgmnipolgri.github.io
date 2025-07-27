@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 3. Inisialisasi Swiper Banner ---
-    new Swiper('.banner-slider', {
+    const bannerSwiper = new Swiper('.banner-slider', {
         loop: true,
         autoplay: {
             delay: 4000,
@@ -29,45 +29,42 @@ document.addEventListener('DOMContentLoaded', () => {
             prevEl: '.banner-slider .swiper-button-prev',
         },
     });
+    setupAutoplayToggle(bannerSwiper, '#banner-autoplay-toggle');
 
     // --- 4. Menu Burger ---
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-
     burger.addEventListener('click', () => {
         nav.classList.toggle('nav-active');
-        navLinks.forEach((link, index) => {
+        burger.classList.toggle('toggle');
+        nav.querySelectorAll('.nav-links li').forEach((link, index) => {
             if (link.style.animation) {
                 link.style.animation = '';
             } else {
                 link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
             }
         });
-        burger.classList.toggle('toggle');
     });
 
-    // --- 5. Memuat Galeri & Inisialisasi Lightbox ---
+    // --- 5. Memuat Galeri & Inisialisasi Filter ---
     const galeriGrid = document.querySelector('.galeri-grid');
     if (galeriGrid) {
         fetch('kegiatan.json')
             .then(response => response.json())
             .then(data => {
-                let galeriHTML = '';
-                data.forEach(kegiatan => {
-                    galeriHTML += `
-                        <div class="galeri-item">
-                            <a href="${kegiatan.gambar}" data-fancybox="gallery" data-caption="<h3>${kegiatan.judul}</h3><p>${kegiatan.deskripsi}</p>">
-                                <img src="${kegiatan.gambar}" alt="${kegiatan.judul}" loading="lazy">
-                            </a>
-                            <div class="galeri-info">
-                                <h3>${kegiatan.judul}</h3>
-                                <span><i class="fas fa-calendar-alt"></i> ${kegiatan.tanggal}</span>
-                            </div>
-                        </div>`;
-                });
-                galeriGrid.innerHTML = galeriHTML;
+                // Menggunakan map untuk membuat HTML dan menambahkan atribut data-kategori
+                galeriGrid.innerHTML = data.map(kegiatan => `
+                    <div class="galeri-item" data-kategori="${kegiatan.kategori || 'lainnya'}">
+                        <a href="${kegiatan.gambar}" data-fancybox="gallery" data-caption="<h3>${kegiatan.judul}</h3><p>${kegiatan.deskripsi}</p>">
+                            <img src="${kegiatan.gambar}" alt="${kegiatan.judul}" loading="lazy">
+                        </a>
+                        <div class="galeri-info">
+                            <h3>${kegiatan.judul}</h3>
+                            <span><i class="fas fa-calendar-alt"></i> ${kegiatan.tanggal}</span>
+                        </div>
+                    </div>`).join('');
 
+                // Inisialisasi Fancybox setelah konten dimuat
                 Fancybox.bind("[data-fancybox]", {
                     Thumbs: false,
                     Toolbar: {
@@ -78,6 +75,33 @@ document.addEventListener('DOMContentLoaded', () => {
                         },
                     },
                 });
+
+                // === LOGIKA FILTER GALERI (BARU) ===
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                const galleryItems = document.querySelectorAll('.galeri-item');
+
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Atur tombol aktif
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+
+                        const filter = button.getAttribute('data-filter');
+
+                        // Loop melalui item galeri untuk menampilkan atau menyembunyikan
+                        galleryItems.forEach(item => {
+                            // Sembunyikan item terlebih dahulu untuk animasi
+                            item.classList.add('hide');
+                            // Tampilkan jika kategori cocok atau jika filter adalah "semua"
+                            if (item.getAttribute('data-kategori') === filter || filter === 'all') {
+                                // Gunakan setTimeout agar transisi CSS berjalan
+                                setTimeout(() => {
+                                    item.classList.remove('hide');
+                                }, 10);
+                            }
+                        });
+                    });
+                });
             })
             .catch(error => console.error('Error memuat data kegiatan:', error));
     }
@@ -86,107 +110,93 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataKepengurusan = [{
             nama: "Bung Hannan",
             jabatan: "Ketua",
-            instagram: "https://instagram.com/akun1",
-            gambar: "image/PPLK.jpg"
+            gambar: "image/Kepengurusan/HANNAN.jpg"
         },
         {
-            nama: "Sarinah Fatimah",
+            nama: "Sarinah Fatim",
             jabatan: "Sekretaris",
-            instagram: "https://instagram.com/akun2",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/FATIM.jpg"
         },
         {
             nama: "Sarinah Ainun",
             jabatan: "Bendahara",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/AINUN.jpg"
         },
         {
             nama: "Sarinah Eulis",
             jabatan: "Bid.Kaderisasi",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/EULIS.jpg"
         },
         {
             nama: "Sarinah Vanya",
             jabatan: "Bid.Kaderisasi",
-            instagram: "https://instagram.com/akun3",
             gambar: "image/PPPH.jpg"
         },
         {
             nama: "Bung Fahri",
             jabatan: "Bid.Kaderisasi",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPLK.jpg"
+            gambar: "image/Kepengurusan/FAHRI.jpg"
         },
         {
             nama: "Sarinah Dela",
             jabatan: "Bid.Idiopol",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/DELA.jpg"
         },
         {
             nama: "Sarinah Anggi",
             jabatan: "Bid.Idiopol",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/ANGGI.jpg"
         },
         {
             nama: "Sarinah Eve",
             jabatan: "Bid.Kaderisasi",
-            instagram: "https://instagram.com/akun3",
             gambar: "image/PPPT.jpg"
         },
         {
             nama: "Bung Azis",
             jabatan: "Bid.Idiopol",
-            instagram: "https://instagram.com/akun3",
             gambar: "image/PPLK.jpg"
         },
         {
             nama: "Bung Arul",
             jabatan: "Bid.Idiopol",
-            instagram: "https://instagram.com/akun3",
             gambar: "image/PPLK.jpg"
         },
         {
             nama: "Sarinah Latifah",
             jabatan: "Bid.Idiopol",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/LATIFAH.jpg"
         },
         {
             nama: "Sarinah Angel",
             jabatan: "Bid.Kesarinahan",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPT.jpg"
+            gambar: "image/Kepengurusan/ANGEL.jpg"
         },
         {
             nama: "Sarinah Vani",
             jabatan: "Bid.Kesarinahan",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/PANI.jpg"
         },
         {
             nama: "Sarinah Levi",
             jabatan: "Bid.Kesarinahan",
-            instagram: "https://instagram.com/akun3",
-            gambar: "image/PPPH.jpg"
+            gambar: "image/Kepengurusan/LEVI.jpg"
+        },
+        {
+            nama: "Sarinah Yuria",
+            jabatan: "Anggota",
+            gambar: "image/Kepengurusan/YURIA.jpg"
         }
     ];
     const pengurusList = document.getElementById('pengurus-list');
     if (pengurusList) {
-        let pengurusHTML = '';
-        dataKepengurusan.forEach(p => {
-            pengurusHTML += `
-                <div class="swiper-slide">
-                    <img src="${p.gambar}" alt="${p.nama}" loading="lazy">
-                    <h3>${p.nama}</h3>
-                    <p>${p.jabatan}</p>
-                    <a href="${p.instagram}" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                </div>`;
-        });
-        pengurusList.innerHTML = pengurusHTML;
+        pengurusList.innerHTML = dataKepengurusan.map(p => `
+            <div class="swiper-slide">
+                <img src="${p.gambar}" alt="${p.nama}" loading="lazy">
+                <h3>${p.nama}</h3>
+                <p>${p.jabatan}</p>
+                <a href="${p.instagram}" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>`).join('');
 
         const kepengurusanSwiper = new Swiper('.kepengurusan-slider', {
             loop: true,
@@ -210,25 +220,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 7. Data dan Slider Pemberitahuan ---
     const dataPemberitahuan = [{
-            gambar: "image/Anggota.jpg"
-        },
-        {
-            gambar: "image/Anggota.jpg"
-        },
-        {
-            gambar: "image/Anggota.jpg"
-        }
-    ];
+        gambar: "image/Anggota.jpg"
+    }, {
+        gambar: "image/Anggota.jpg"
+    }, {
+        gambar: "image/Anggota.jpg"
+    }];
     const pemberitahuanList = document.getElementById('pemberitahuan-list');
     if (pemberitahuanList) {
-        let pemberitahuanHTML = '';
-        dataPemberitahuan.forEach(p => {
-            pemberitahuanHTML += `
-                <div class="swiper-slide">
-                    <img src="${p.gambar}" alt="Pemberitahuan" loading="lazy">
-                </div>`;
-        });
-        pemberitahuanList.innerHTML = pemberitahuanHTML;
+        pemberitahuanList.innerHTML = dataPemberitahuan.map(p => `
+            <div class="swiper-slide">
+                <img src="${p.gambar}" alt="Pemberitahuan" loading="lazy">
+            </div>`).join('');
 
         const pemberitahuanSwiper = new Swiper('.pemberitahuan-slider', {
             loop: true,
@@ -252,55 +255,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 8. Logika Pengganti Tema Siklus ---
     const cycleThemeBtn = document.getElementById('cycle-theme-btn');
-    const themes = ['default', 'dark', 'light'];
-    let currentThemeIndex = 0;
     cycleThemeBtn.addEventListener('click', () => {
-        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-        document.body.setAttribute('data-theme', themes[currentThemeIndex]);
+        const themes = ['default', 'dark', 'light'];
+        let currentTheme = document.body.getAttribute('data-theme');
+        let nextIndex = (themes.indexOf(currentTheme) + 1) % themes.length;
+        document.body.setAttribute('data-theme', themes[nextIndex]);
     });
 
     // --- 9. Logika Pemutar Musik ---
     const musicToggle = document.getElementById('music-toggle');
     const backgroundMusic = document.getElementById('background-music');
-    const musicIcon = musicToggle.querySelector('i');
-    let isPlaying = false;
+    if (musicToggle && backgroundMusic) {
+        let isPlaying = false;
+        const musicIcon = musicToggle.querySelector('i');
 
-    function toggleMusic() {
-        isPlaying = !isPlaying;
-        if (isPlaying) {
-            backgroundMusic.play();
-            musicIcon.classList.replace('fa-volume-mute', 'fa-volume-high');
-        } else {
-            backgroundMusic.pause();
-            musicIcon.classList.replace('fa-volume-high', 'fa-volume-mute');
-        }
-    }
-    musicToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMusic();
-    });
+        const toggleMusic = () => {
+            isPlaying = !isPlaying;
+            isPlaying ? backgroundMusic.play() : backgroundMusic.pause();
+            musicIcon.className = `fas ${isPlaying ? 'fa-volume-high' : 'fa-volume-mute'}`;
+        };
 
-    function attemptPlayMusic() {
-        backgroundMusic.play().then(() => {
-            isPlaying = true;
-            musicIcon.classList.replace('fa-volume-mute', 'fa-volume-high');
-        }).catch(() => {
-            isPlaying = false;
-            musicIcon.classList.replace('fa-volume-high', 'fa-volume-mute');
+        musicToggle.addEventListener('click', e => {
+            e.stopPropagation();
+            toggleMusic();
         });
-        document.body.removeEventListener('click', attemptPlayMusic);
+
+        const attemptPlayMusic = () => {
+            backgroundMusic.play().then(() => {
+                isPlaying = true;
+                musicIcon.className = 'fas fa-volume-high';
+            }).catch(() => {
+                isPlaying = false;
+                musicIcon.className = 'fas fa-volume-mute';
+            });
+        };
+        document.body.addEventListener('click', attemptPlayMusic, {
+            once: true
+        });
     }
-    document.body.addEventListener('click', attemptPlayMusic, {
-        once: true
-    });
 
     // --- Fungsi Bantuan ---
-    // Fungsi untuk tombol pause/play slider
     function setupAutoplayToggle(swiperInstance, buttonSelector) {
         const toggleBtn = document.querySelector(buttonSelector);
         if (!toggleBtn) return;
         const icon = toggleBtn.querySelector('i');
-
         toggleBtn.addEventListener('click', () => {
             if (swiperInstance.autoplay.running) {
                 swiperInstance.autoplay.stop();
@@ -317,3 +315,12 @@ document.addEventListener('DOMContentLoaded', () => {
 const style = document.createElement('style');
 style.innerHTML = `@keyframes navLinkFade { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0px); } }`;
 document.head.appendChild(style);
+
+// --- Menambahkan fungsionalitas untuk mencegah download gambar ---
+document.addEventListener('contextmenu', event => {
+    // Cek apakah elemen yang di-klik kanan adalah gambar (tag <img>)
+    if (event.target.tagName === 'IMG') {
+        // Mencegah menu default (menu klik kanan) muncul
+        event.preventDefault();
+    }
+});

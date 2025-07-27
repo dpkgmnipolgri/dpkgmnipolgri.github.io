@@ -5,8 +5,6 @@
     --hitam: #1a1a1a;
     --abu-terang: #f0f2f5;
     --abu-gelap: #333;
-
-    /* Tema Default: Gradien Merah-Biru */
     --warna-utama-1: #c31432;
     --warna-utama-2: #240b36;
     --warna-aksen: #d32f2f;
@@ -16,7 +14,6 @@
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Tema Gelap: Marhaenisme */
 body[data-theme="dark"] {
     --warna-utama-1: #1a1a1a;
     --warna-utama-2: #000000;
@@ -27,7 +24,6 @@ body[data-theme="dark"] {
     --shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
 }
 
-/* Tema Terang: Bung Karno */
 body[data-theme="light"] {
     --warna-utama-1: #d32f2f;
     --warna-utama-2: #c31432;
@@ -38,7 +34,6 @@ body[data-theme="light"] {
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Pengaturan Global & Reset --- */
 * {
     margin: 0;
     padding: 0;
@@ -61,9 +56,10 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: var(--warna-latar);
+    flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,8 +73,29 @@ body {
 }
 
 .preloader-logo {
-    width: 80px;
+    width: 25vw;
+    max-width: 120px;
+    margin-bottom: 3px;
     animation: pulse 1.5s infinite ease-in-out;
+}
+
+.preloader-text {
+    font-size: 1rem;
+    color: var(--warna-teks-utama);
+    text-align: center;
+    white-space: pre-line;
+    opacity: 0;
+    animation: fade-in 1s ease-in 2s forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes pulse {
@@ -132,6 +149,36 @@ body {
 }
 
 /* --- Banner Slider --- */
+#banner-autoplay-toggle {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    opacity: 0.7;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#banner-autoplay-toggle:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+    .banner-slider {
+        aspect-ratio: 4 / 3;
+    }
+}
+
 .banner-slider {
     width: 100%;
     aspect-ratio: 16 / 4;
@@ -250,7 +297,21 @@ nav {
     width: 100%;
 }
 
-/* --- Bagian Hero --- */
+/* --- Bagian Hero dengan Animasi Gradien --- */
+@keyframes animatedGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .hero {
     position: relative;
     height: 100vh;
@@ -259,7 +320,10 @@ nav {
     align-items: center;
     text-align: center;
     color: var(--putih);
-    background: linear-gradient(135deg, var(--warna-utama-1), var(--warna-utama-2));
+    /* Modifikasi Latar Belakang */
+    background: linear-gradient(135deg, var(--warna-utama-1), var(--warna-utama-2), #c31432);
+    background-size: 400% 400%;
+    animation: animatedGradient 15s ease infinite;
 }
 
 .hero-content {
@@ -417,7 +481,7 @@ nav {
     }
 }
 
-/* --- Kepengurusan Slider --- */
+/* --- Kepengurusan Slider dengan Efek 3D --- */
 .kepengurusan-slider {
     position: relative;
     width: 400px;
@@ -436,12 +500,19 @@ nav {
     justify-content: center;
     padding: 20px;
     text-align: center;
+    /* Penambahan transisi */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.kepengurusan-slider .swiper-slide:hover {
+    transform: perspective(1000px) rotateY(5deg) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .kepengurusan-slider .swiper-slide img {
     width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    height: 300px;
+    border-radius: 0;
     object-fit: cover;
     margin-bottom: 20px;
     border: 4px solid var(--warna-aksen);
@@ -462,12 +533,37 @@ body[data-theme="dark"] .kepengurusan-slider p {
 }
 
 .kepengurusan-slider .swiper-slide a {
-    color: #d32f2f;
+    color: var(--warna-aksen);
     text-decoration: none;
     font-weight: 600;
 }
 
-/* --- Galeri --- */
+/* --- Galeri dan Filter --- */
+.filter-buttons {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 2px solid var(--warna-aksen);
+    color: var(--warna-aksen);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--warna-aksen);
+    color: var(--putih);
+}
+
 .galeri-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -480,8 +576,14 @@ body[data-theme="dark"] .kepengurusan-slider p {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: left;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.galeri-item.hide {
+    transform: scale(0.8);
+    opacity: 0;
+    display: none;
 }
 
 .galeri-item:hover {
@@ -556,13 +658,13 @@ body[data-theme="dark"] .galeri-info span {
     }
 }
 
-
 /* --- Tombol Autoplay Slider Umum --- */
 .swiper-autoplay-toggle {
     position: absolute;
     bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 15px;
+    opacity: 0.7;
+    transform: translateX(0);
     z-index: 10;
     background: rgba(0, 0, 0, 0.4);
     color: var(--putih);
@@ -575,7 +677,6 @@ body[data-theme="dark"] .galeri-info span {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.8;
     transition: opacity 0.3s ease;
 }
 
@@ -640,7 +741,6 @@ body[data-theme="dark"] .galeri-info span {
     color: white;
 }
 
-
 /* --- Footer --- */
 footer {
     background-color: var(--hitam);
@@ -668,7 +768,6 @@ footer p {
     color: #ccc;
 }
 
-
 /* --- Burger Menu & Responsif --- */
 .burger {
     display: none;
@@ -689,7 +788,6 @@ footer p {
     }
 }
 
-
 @media screen and (max-width: 768px) {
     .kepengurusan-slider {
         width: 90vw;
@@ -700,7 +798,6 @@ footer p {
         position: fixed;
         right: 0;
         top: 75px;
-        /* Tinggi header */
         background-color: var(--warna-header);
         backdrop-filter: blur(10px);
         height: calc(100vh - 75px);
@@ -740,5 +837,101 @@ footer p {
 
     .toggle .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* --- Halaman Artikel --- */
+.list-artikel {
+    display: grid;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.artikel-item {
+    background: var(--warna-header);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+
+.artikel-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.artikel-gambar {
+    width: 40%;
+    min-width: 250px;
+    object-fit: cover;
+}
+
+.artikel-konten {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.artikel-info {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 5px 0 15px 0;
+}
+
+.artikel-konten p {
+    flex-grow: 1;
+}
+
+.cta-button-small {
+    background: var(--warna-aksen);
+    color: var(--putih);
+    padding: 8px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.cta-button-small:hover {
+    background-color: var(--hitam);
+}
+
+.artikel-container {
+    max-width: 800px;
+    margin: auto;
+    background: var(--warna-header);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.artikel-gambar-utama {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.artikel-isi {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+
+    .artikel-item,
+    .artikel-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .artikel-gambar {
+        width: 100%;
+        height: 200px;
     }
 }

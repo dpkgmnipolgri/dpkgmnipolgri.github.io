@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentingnya Organisasi - DPK GMNI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="image/Logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body data-theme="default">
+    <header>
+        <nav><a href="index.html" class="logo"><img src="image/Logo.svg" alt="Logo GMNI"><span>GMNI Politeknik PGRI
+                    Banten</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#sejarah">Sejarah</a></li>
+                <li><a href="index.html#kepengurusan">Kepengurusan</a></li>
+                <li><a href="index.html#galeri">Galeri</a></li>
+                <li><a href="daftar-artikel.html">Artikel</a></li>
+                <li><a href="index.html#pemberitahuan">Pemberitahuan</a></li>
+                <li><a href="index.html#dokumen">Dokumen</a></li>
+                <li><a href="index.html#pendaftaran">Pendaftaran</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="content-section">
+            <div class="artikel-container">
+                <h1>Kuliah-Pulang vs Kuliah-Rapat: Kenapa Mahasiswa Wajib Berorganisasi?</h1>
+                <p class="artikel-info">Oleh: Bung Hannan | 28 Juli 2025</p>
+                <img src="image/Articel/kupu.jpg" alt="Mahasiswa Berdiskusi" class="artikel-gambar-utama">
+                <div class="artikel-isi">
+                    <p>Ada dua tipe mahasiswa paling umum di kampus: si 'kupu-kupu' (kuliah-pulang, kuliah-pulang) dan
+                        si 'kura-kura' (kuliah-rapat, kuliah-rapat). Si kupu-kupu mungkin punya IPK cumlaude, tapi
+                        seringkali kaget pas masuk dunia kerja. Si kura-kura mungkin IPK-nya nggak setinggi langit, tapi
+                        entah kenapa lebih luwes dan banyak akal. Kenapa bisa gitu?</p>
+                    <p>Jawabannya simpel: kampus itu laboratorium, bukan cuma pabrik ijazah. Ruang kelas ngajarin kita
+                        teori, tapi organisasi ngajarin kita prakteknya. Mau belajar public speaking? Jadi moderator
+                        diskusi. Mau belajar leadership? Jadi ketua pelaksana acara. Mau belajar manajemen konflik? Coba
+                        aja atur rapat dengan puluhan kepala yang beda-beda. Semua itu 'soft skill' yang harganya mahal
+                        banget di dunia pasca-kampus.</p>
+                    <p>Belum lagi soal relasi. Di organisasi, kita ketemu orang dari berbagai jurusan, angkatan, bahkan
+                        latar belakang. Inilah 'networking' yang sesungguhnya. Koneksi ini bukan cuma buat nambah
+                        follower IG, tapi buat buka pintu kesempatan di masa depan, entah itu proyek bareng, info kerja,
+                        atau sekadar teman diskusi yang sefrekuensi.</p>
+                    <blockquote>"Organisasi itu tempat kita belajar mengubah keadaan, bukan cuma ngeluhin keadaan."
+                    </blockquote>
+                    <p>Yang paling penting, organisasi (apalagi organisasi pergerakan seperti GMNI) ngajarin kita buat
+                        peduli. Kita jadi melek sama isu-isu sosial, belajar menganalisis masalah, dan berani
+                        menyuarakan solusi. Kita belajar bahwa jadi mahasiswa itu punya tanggung jawab lebih dari
+                        sekadar ngejar nilai. Jadi, kalau kamu masih jadi 'kupu-kupu', mungkin ini saatnya coba jadi
+                        'kura-kura'. Gak akan rugi, malah nambah 'cuan' pengalaman yang gak ternilai.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Terhubunglah dengan kami</p>
+        <div class="social-media"><a href="https://www.instagram.com/dpkgmni.polgri/" target="_blank"
+                aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/6283823175730"
+                target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+        <p>&copy; 2025 DPK GMNI Politeknik PGRI Banten. All rights reserved.</p>
+    </footer>
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                burger.classList.toggle('toggle');
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pancasila dan Realita Negara - DPK GMNI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="image/Logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body data-theme="default">
+    <header>
+        <nav><a href="index.html" class="logo"><img src="image/Logo.svg" alt="Logo GMNI"><span>GMNI Politeknik PGRI
+                    Banten</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#sejarah">Sejarah</a></li>
+                <li><a href="index.html#kepengurusan">Kepengurusan</a></li>
+                <li><a href="index.html#galeri">Galeri</a></li>
+                <li><a href="daftar-artikel.html">Artikel</a></li>
+                <li><a href="index.html#pemberitahuan">Pemberitahuan</a></li>
+                <li><a href="index.html#dokumen">Dokumen</a></li>
+                <li><a href="index.html#pendaftaran">Pendaftaran</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="content-section">
+            <div class="artikel-container">
+                <h1>Pancasila di Pidato, Korupsi di Meja: Negara Kita Beneran Baik-Baik Aja?</h1>
+                <p class="artikel-info">Oleh: Bung Hannan | 28 Juli 2025</p>
+                <img src="image/Articel/pancasila.jpg" alt="Garuda Pancasila" class="artikel-gambar-utama">
+                <div class="artikel-isi">
+                    <p>Dari SD kita udah disuruh hafal Pancasila. Katanya, itu dasar negara, jiwa bangsa, harga mati.
+                        Tapi coba deh, buka berita pagi ini sambil ngopi. Ada berita pejabat ketangkep korupsi, rakyat
+                        kecil digusur, hukum yang tajam ke bawah tapi tumpul ke atas. Terus kita mikir, Pancasila yang
+                        kita hafal itu sebenernya buat siapa?</p>
+                    <p>Sila pertama, "Ketuhanan Yang Maha Esa". Harusnya jadi landasan moral. Tapi kok bisa ya, pejabat
+                        yang rajin ibadah, pidatonya religius, tapi tangannya enteng banget 'nyolong' uang rakyat? Sila
+                        kedua, "Kemanusiaan yang Adil dan Beradab". Adil dan beradab buat siapa? Buat mereka yang punya
+                        kuasa dan uang, atau buat semua? Realitanya, keadilan seringkali jadi barang mahal yang nggak
+                        semua orang bisa beli.</p>
+                    <blockquote>"Katanya 'Keadilan Sosial bagi Seluruh Rakyat Indonesia', tapi kok rasanya kayak
+                        'Keadilan Sosial bagi yang Punya Akses Aja'."</blockquote>
+                    <p>Belum lagi sila ketiga dan keempat. "Persatuan Indonesia" seringkali cuma jadi slogan buat
+                        meredam kritik. Kalau ada yang protes kebijakan, langsung dicap anti-persatuan, anti-NKRI.
+                        "Kerakyatan yang Dipimpin oleh Hikmat..." juga sering jadi tanda tanya besar. Kebijakan yang
+                        dibuat beneran hasil 'hikmat kebijaksanaan' untuk rakyat, atau cuma buat kepentingan segelintir
+                        oligarki?</p>
+                    <p>Ini bukan berarti Pancasila itu salah. Pancasila itu sempurna sebagai ideologi. Yang salah adalah
+                        ketika ia cuma jadi pajangan di dinding kantor dan bahan pidato, tapi nilainya dikhianati setiap
+                        hari di meja-meja kekuasaan. Sebagai mahasiswa, tugas kita bukan cuma hafal. Tugas kita adalah
+                        nagih janji-janji Pancasila itu kepada negara. Kita yang harus jadi pengingat bahwa Pancasila
+                        itu untuk dipraktikkan, bukan cuma buat dikhotbahkan.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Terhubunglah dengan kami</p>
+        <div class="social-media"><a href="https://www.instagram.com/dpkgmni.polgri/" target="_blank"
+                aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/6283823175730"
+                target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+        <p>&copy; 2025 DPK GMNI Politeknik PGRI Banten. All rights reserved.</p>
+    </footer>
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                burger.classList.toggle('toggle');
+            });
+        }
+    </script>
+</body>
+
+</html>
